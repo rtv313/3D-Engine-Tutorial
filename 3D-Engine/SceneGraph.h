@@ -107,9 +107,9 @@ public:
 		}
 
 		if (App->input->GetKey(SDL_SCANCODE_V) == KEY_REPEAT) {
-			this->nodes[3]->scale.x += 0.01f;
-			this->nodes[3]->scale.y += 0.01f;
-			this->nodes[3]->scale.z += 0.01f;
+			root->scale.x += 0.01f;
+			root->scale.y += 0.01f;
+			root->scale.z += 0.01f;
 		}
 
 
@@ -120,7 +120,16 @@ public:
 			root->position.y -= 0.1f;
 
 		if (App->input->GetKey(SDL_SCANCODE_B) == KEY_REPEAT)
-			root->rotation.y -= 0.01f;
+		{
+			aiQuaternion rotate(aiVector3D(0.0f, 1.0f, 0.0f), -0.01f);
+			root->rotation = root->rotation*rotate;
+		}
+
+		if (App->input->GetKey(SDL_SCANCODE_C) == KEY_REPEAT)
+		{
+			aiQuaternion rotate(aiVector3D(0.0f, 1.0f, 0.0f), 0.01f);
+			root->rotation = root->rotation*rotate;
+		}
 
 		glm::mat4 projection = camera.getProjectionMatrix();
 		glm::mat4 view = camera.getViewMatrix();

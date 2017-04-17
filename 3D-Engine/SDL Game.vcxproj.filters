@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Main">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Core Modules">
+      <UniqueIdentifier>{72b85efa-930b-4213-a8ec-2f0f817410d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{ad89cf24-f35e-4d0c-90e5-820c054c274d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGL_Modules">
+      <UniqueIdentifier>{15b5cbc6-cd68-4e6e-8935-b04f2fdf7bf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Glew">
+      <UniqueIdentifier>{4ef3793b-65ea-48b7-bd31-199818d94e38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BasicExercises">
+      <UniqueIdentifier>{8f1eb20c-492b-4481-b9de-9111d56964ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{2ec768bf-6cd3-411c-b54c-791019c3d087}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{261c874c-f3fb-4478-b83b-85175c660a0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\BasicLightingTutorial">
+      <UniqueIdentifier>{2b0ff633-d653-48e7-8cbd-610c55077e4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Materials">
+      <UniqueIdentifier>{ef7156e0-d6d6-46f5-902c-2de26b1497e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LightingMaps">
+      <UniqueIdentifier>{8e3d1565-1e52-4475-acf1-313e0e2746cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LightsTutorial">
+      <UniqueIdentifier>{1d63c052-6387-40ff-9b99-b167e5f38108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LightsTutorial\DirectionalLight">
+      <UniqueIdentifier>{994f3d47-0251-4917-a050-92365d4248ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LightsTutorial\PointLight">
+      <UniqueIdentifier>{fdf46ed4-c381-481c-a7de-59c9f2ffecec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LightsTutorial\SpotLight">
+      <UniqueIdentifier>{9161ea98-b302-411a-9612-559e702e0201}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MultipleLightsTutorial">
+      <UniqueIdentifier>{bbef9ced-3e84-4f8f-83cd-ecc92ac6b21e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ModelLoadingTutorial">
+      <UniqueIdentifier>{fddd4e85-d959-484d-94a0-31edc0ad7215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneGraph">
+      <UniqueIdentifier>{dc16304b-7a94-4295-a004-4ed04c857898}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ModuleRender.h">
+      <Filter>Core Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleTextures.h">
+      <Filter>Core Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleWindow.h">
+      <Filter>Core Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Module.h">
+      <Filter>Core Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleAudio.h">
+      <Filter>Core Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleFadeToBlack.h">
+      <Filter>Core Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleInput.h">
+      <Filter>Core Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="MemLeaks.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL_Renderer.h">
+      <Filter>OpenGL_Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Glew\include\GL\glew.h">
+      <Filter>Glew</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleCameraEditor.h">
+      <Filter>Core Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial03-Triangle.h">
+      <Filter>BasicExercises</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial04-Shader.h">
+      <Filter>BasicExercises</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadFile.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial05-UniformVariables.h">
+      <Filter>BasicExercises</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="GeometryTexture.h">
+      <Filter>BasicExercises</Filter>
+    </ClInclude>
+    <ClInclude Include="GeometryTransformation.h">
+      <Filter>BasicExercises</Filter>
+    </ClInclude>
+    <ClInclude Include="GeometryWithTransformView.h">
+      <Filter>BasicExercises</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTutorialCamera.h">
+      <Filter>BasicExercises</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicLigthing.h">
+      <Filter>BasicExercises</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialTutorial.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="LigthingMaps.h">
+      <Filter>LightingMaps</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectionalLightTutorial.h">
+      <Filter>LightsTutorial\DirectionalLight</Filter>
+    </ClInclude>
+    <ClInclude Include="PointLightTutorial.h">
+      <Filter>LightsTutorial\PointLight</Filter>
+    </ClInclude>
+    <ClInclude Include="SpotLightTutorial.h">
+      <Filter>LightsTutorial\SpotLight</Filter>
+    </ClInclude>
+    <ClInclude Include="MultipleLightsTutorial.h">
+      <Filter>MultipleLightsTutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>ModelLoadingTutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>ModelLoadingTutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGraph.h">
+      <Filter>SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphNode.h">
+      <Filter>SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphMesh.h">
+      <Filter>SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphMaterial.h">
+      <Filter>SceneGraph</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleRender.cpp">
+      <Filter>Core Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleTextures.cpp">
+      <Filter>Core Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleWindow.cpp">
+      <Filter>Core Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleAudio.cpp">
+      <Filter>Core Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFadeToBlack.cpp">
+      <Filter>Core Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleInput.cpp">
+      <Filter>Core Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGL_Renderer.cpp">
+      <Filter>OpenGL_Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleCameraEditor.cpp">
+      <Filter>Core Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Colors.h">
+      <Filter>BasicExercises</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shader.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shader05.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shaderTexture.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shaderTexture.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shaderTransformation.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shaderTutorialTransformProjectionViewModel.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="lighting.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="lighting.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="lamp.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shaderWithAmbient.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="basicLigthingShader.vs">
+      <Filter>Shaders\BasicLightingTutorial</Filter>
+    </None>
+    <None Include="basicLigthingShader.fs">
+      <Filter>Shaders\BasicLightingTutorial</Filter>
+    </None>
+    <None Include="materialShader.fs">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="ligthingMaps.vs">
+      <Filter>LightingMaps</Filter>
+    </None>
+    <None Include="ligthingMaps.fs">
+      <Filter>LightingMaps</Filter>
+    </None>
+    <None Include="directionalLight.vs">
+      <Filter>LightsTutorial\DirectionalLight</Filter>
+    </None>
+    <None Include="directionalLight.fs">
+      <Filter>LightsTutorial\DirectionalLight</Filter>
+    </None>
+    <None Include="pointLight.fs">
+      <Filter>LightsTutorial\PointLight</Filter>
+    </None>
+    <None Include="pointLight.vs">
+      <Filter>LightsTutorial\PointLight</Filter>
+    </None>
+    <None Include="spotLight.fs">
+      <Filter>LightsTutorial\SpotLight</Filter>
+    </None>
+    <None Include="MultipleLights.fs">
+      <Filter>MultipleLightsTutorial</Filter>
+    </None>
+    <None Include="MultipleLights.vs">
+      <Filter>MultipleLightsTutorial</Filter>
+    </None>
+    <None Include="ModelShader.vs">
+      <Filter>ModelLoadingTutorial</Filter>
+    </None>
+    <None Include="ModelShader.fs">
+      <Filter>ModelLoadingTutorial</Filter>
+    </None>
+  </ItemGroup>
+</Project>

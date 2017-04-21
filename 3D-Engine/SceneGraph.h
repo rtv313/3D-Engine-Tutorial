@@ -61,8 +61,6 @@ public:
 			newNode->addChild(newChild);
 			
 		}
-
-
 		
 		return newNode;
 	}
@@ -91,45 +89,7 @@ public:
 		glEnable(GL_DEPTH_TEST); // z-finding
 
 		shader.Use();
-
 		this->nodes;
-
-		if (App->input->GetKey(SDL_SCANCODE_O) == KEY_REPEAT)
-			this->nodes[3]->position.y += 0.01f;
-
-		if (App->input->GetKey(SDL_SCANCODE_P) == KEY_REPEAT)
-			this->nodes[3]->position.y -= 0.01f;
-
-		if (App->input->GetKey(SDL_SCANCODE_M) == KEY_REPEAT)
-		{
-			aiQuaternion rotate(aiVector3D(0.0f, 1.0f, 0.0f), 0.01f);
-			this->nodes[3]->rotation = this->nodes[3]->rotation*rotate;
-		}
-
-		if (App->input->GetKey(SDL_SCANCODE_V) == KEY_REPEAT) {
-			root->scale.x += 0.01f;
-			root->scale.y += 0.01f;
-			root->scale.z += 0.01f;
-		}
-
-
-		if (App->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT)
-			root->position.y += 0.1f;
-
-		if (App->input->GetKey(SDL_SCANCODE_K) == KEY_REPEAT)
-			root->position.y -= 0.1f;
-
-		if (App->input->GetKey(SDL_SCANCODE_B) == KEY_REPEAT)
-		{
-			aiQuaternion rotate(aiVector3D(0.0f, 1.0f, 0.0f), -0.01f);
-			root->rotation = root->rotation*rotate;
-		}
-
-		if (App->input->GetKey(SDL_SCANCODE_C) == KEY_REPEAT)
-		{
-			aiQuaternion rotate(aiVector3D(0.0f, 1.0f, 0.0f), 0.01f);
-			root->rotation = root->rotation*rotate;
-		}
 
 		glm::mat4 projection = camera.getProjectionMatrix();
 		glm::mat4 view = camera.getViewMatrix();
@@ -138,13 +98,9 @@ public:
 
 		glm::mat4 model;
 		aiVector3D position = aiVector3D(0, 0, 0);
-		aiVector3D scale = aiVector3D(0.2, 0.2, 0.2);
+		aiVector3D scale = aiVector3D(1.0, 1.0, 1.0);
 		aiQuaternion rotation = aiQuaternion(1, 0, 0, 0);
 		aiMatrix4x4 m(scale, rotation, position);
-		
-		//glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-
-		
 		root->Draw(shader, m);
 		
 	}

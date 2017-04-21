@@ -22,8 +22,6 @@ public:
 public:
 	SDL_Renderer* renderer = nullptr;
 	OpenGL_Renderer *opengl_render;
-	
-
 };
 
 #endif // __MODULERENDER_H__

@@ -56,9 +56,7 @@ public:
 		std::vector<VertexGraph> vertices;
 		std::vector<GLuint> indices;
 		std::vector<TextureGraph> textures;
-
-	
-
+		
 		// Walk through each of the mesh's vertices
 		for (GLuint i = 0; i < mesh->mNumVertices; i++)
 		{

@@ -2,6 +2,8 @@
 #include "Application.h"
 #include "ModuleInput.h"
 #include "SDL/include/SDL.h"
+#include "imgui/imgui.h"
+#include "imgui/imgui_impl_sdl_gl3.h"
 
 #define MAX_KEYS 300
 
@@ -80,6 +82,8 @@ update_status ModuleInput::PreUpdate()
 
 	while(SDL_PollEvent(&event) != 0)
 	{
+		ImGui_ImplSdlGL3_ProcessEvent(&event);
+
 		switch(event.type)
 		{
 			case SDL_QUIT:

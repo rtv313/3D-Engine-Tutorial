@@ -105,3 +105,22 @@ bool ModuleWindow::CleanUp()
 	return true;
 }
 
+void ModuleWindow::changeResolution(int width, int height)
+{
+	
+	SDL_SetWindowSize(window, width*SCREEN_SIZE, height*SCREEN_SIZE);
+}
+
+void ModuleWindow::SetFullScreen(bool fullscreen,bool fullscreenDesk) 
+{
+	Uint32 flags;
+
+	if (fullscreen == true)
+		flags |= SDL_WINDOW_FULLSCREEN;
+
+	if (fullscreenDesk == true)
+		flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
+
+	SDL_SetWindowFullscreen(window, flags);
+
+}

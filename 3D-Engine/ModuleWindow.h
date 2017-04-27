@@ -8,6 +8,8 @@ struct SDL_Surface;
 
 class ModuleWindow : public Module
 {
+
+
 public:
 
 	ModuleWindow();
@@ -21,10 +23,13 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	void changeResolution(int width,int height);
+	void SetFullScreen(bool fullscreen, bool fullscreenDesk);
+
 public:
 	//The window we'll be rendering to
 	SDL_Window* window = nullptr;
-
+	
 	//The surface contained by the window
 	SDL_Surface* screen_surface = nullptr;
 

@@ -1,6 +1,9 @@
 #include "ConfigurationWindow.h"
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_sdl_gl3.h"
+#include "Application.h"
+#include "ModuleWindow.h"
+
 
 ConfigurationWindow::ConfigurationWindow()
 {
@@ -32,6 +35,7 @@ void ConfigurationWindow::addMiliseconds(float milisecond)
 
 void ConfigurationWindow::Draw() 
 {
+	
 	ImGui::Begin("Configuration");
 	
 	if (ImGui::CollapsingHeader("Application"))
@@ -49,7 +53,22 @@ void ConfigurationWindow::Draw()
 
 	}
 
+	if (ImGui::CollapsingHeader("Window")) 
+	{
+		ImGui::Spacing();
+		ImGui::SliderInt("Width",&width,0,1920, "%.0f");
+		ImGui::SliderInt("Height", &height, 0, 1080, "%.0f");
+		ImGui::Spacing();
+		ImGui::Checkbox("Fullscreen",&fullScreen);
+		ImGui::SameLine();
+		ImGui::Checkbox("Rezisable", &rezisable);
+		ImGui::Spacing();
+		ImGui::Checkbox("Borderless", &borderless);
+		ImGui::SameLine();
+		ImGui::Checkbox("Fulldesktop", &fulldesktop);
+	}
 
-
+	App->window->changeResolution(width, height);
+	App->window->SetFullScreen(fullScreen, fulldesktop);
 	ImGui::End(); // end window
 }

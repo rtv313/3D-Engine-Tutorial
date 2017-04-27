@@ -59,6 +59,9 @@
     <Filter Include="Imgui">
       <UniqueIdentifier>{0a6bf554-09f3-4040-b68b-a3b37fa12efd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ModuleEditorModules">
+      <UniqueIdentifier>{acafea76-007b-488a-a5ff-7ce5cc3eec83}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ModuleRender.h">
@@ -84,9 +87,6 @@
     </ClInclude>
     <ClInclude Include="ModuleFadeToBlack.h">
       <Filter>Core Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="Animation.h">
-      <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="Point.h">
       <Filter>Utils</Filter>
@@ -199,6 +199,24 @@
     <ClInclude Include="imgui\stb_truetype.h">
       <Filter>Imgui</Filter>
     </ClInclude>
+    <ClInclude Include="ConsoleLog.h">
+      <Filter>ModuleEditorModules</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>ModuleEditorModules</Filter>
+    </ClInclude>
+    <ClInclude Include="FpsGraph.h">
+      <Filter>ModuleEditorModules</Filter>
+    </ClInclude>
+    <ClInclude Include="Tempmicro.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="TempMili.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigurationWindow.h">
+      <Filter>ModuleEditorModules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -251,6 +269,21 @@
     </ClCompile>
     <ClCompile Include="imgui\imgui_draw.cpp">
       <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleLog.cpp">
+      <Filter>ModuleEditorModules</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>ModuleEditorModules</Filter>
+    </ClCompile>
+    <ClCompile Include="FpsGraph.cpp">
+      <Filter>ModuleEditorModules</Filter>
+    </ClCompile>
+    <ClCompile Include="TempMicro.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigurationWindow.cpp">
+      <Filter>ModuleEditorModules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

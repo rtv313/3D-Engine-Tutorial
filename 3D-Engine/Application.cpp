@@ -52,6 +52,15 @@ update_status Application::Update()
 {
 	update_status ret = UPDATE_CONTINUE;
 
+	miliseconds.start();
+
+	if (resetTimer == true) 
+	{
+		timerFPS.start();
+		start = timerFPS.read();
+		resetTimer = false;
+	}
+
 	calculateDeltaTime();
 
 	for(list<Module*>::iterator it = modules.begin(); it != modules.end() && ret == UPDATE_CONTINUE; ++it)
@@ -65,6 +74,22 @@ update_status Application::Update()
 	for(list<Module*>::iterator it = modules.begin(); it != modules.end() && ret == UPDATE_CONTINUE; ++it)
 		if((*it)->IsEnabled() == true) 
 			ret = (*it)->PostUpdate();
+
+	++fpsCounter;
+
+	float timeForFrame = miliseconds.read();
+	App->editor->confWindow.addMiliseconds(timeForFrame);
+
+	if (timerFPS.read() >= SECOND + start) // One second pased
+	{
+		App->editor->log.AddLog("FPS:%d \n",fpsCounter + 10);
+		App->editor->confWindow.addFps(fpsCounter + FRAME_ADJUSTMENT);
+		fpsCounter = 0;
+		resetTimer = true;
+	}
+
+	Uint32 delayTime = abs(SECOND / FPS_CAP);
+	SDL_Delay(delayTime);
 
 	return ret;
 }
@@ -86,3 +111,4 @@ void Application::calculateDeltaTime()
 	deltaTime =( currentFrame - lastFrame)/1000;
 	lastFrame = currentFrame;
 }
+

@@ -40,7 +40,7 @@ private:
 	//PointLightTutorial *pointLigthTutorial;
 	//SpotLightTutorial * spotLightTutorial;
 	//MultipleLightsTutorial * multipleLightsTutorial;
-	//Model* nanosuit;
+	Model* nanosuit;
 	SceneGraph * sceneGraph;
 
 }; 

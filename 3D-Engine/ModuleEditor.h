@@ -3,6 +3,10 @@
 
 #include "Module.h"
 #include "Globals.h"
+#include "ConsoleLog.h"
+#include "Menu.h"
+#include "FpsGraph.h"
+#include "ConfigurationWindow.h"
 
 class ModuleEditor : public Module 
 {
@@ -15,5 +19,11 @@ public:
 	update_status Update();
 	update_status PostUpdate();
 	bool CleanUp();
+	char * text ="hola";
+	float f=0.0;
+	Log log;
+	Menu menu;
+	ConfigurationWindow confWindow;
+	
 };
 #endif

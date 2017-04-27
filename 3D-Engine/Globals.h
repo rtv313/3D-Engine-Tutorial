@@ -46,11 +46,12 @@ typedef unsigned int uint;
 	 }
 
 // Configuration -----------
-#define SCREEN_SIZE 3
+#define SCREEN_SIZE 4
 #define SCREEN_WIDTH 384
 #define SCREEN_HEIGHT 240
 #define FULLSCREEN false
 #define VSYNC true
 #define TITLE "My own 3D Engine Game"
+#define FPS_CAP 60
 
 #endif //__GLOBALS_H__

@@ -23,7 +23,7 @@ OpenGL_Renderer::OpenGL_Renderer()
 	//pointLigthTutorial = new PointLightTutorial();
 	//spotLightTutorial = new SpotLightTutorial();
 	//multipleLightsTutorial = new MultipleLightsTutorial();
-	//nanosuit = new Model("../Models/street/Street.obj");
+	nanosuit = new Model("../Models/street/Street.obj");
 	sceneGraph = new SceneGraph("../Models/street/Street.obj");
 
 }
@@ -43,14 +43,14 @@ OpenGL_Renderer::~OpenGL_Renderer()
 	//delete pointLigthTutorial;
 	//delete spotLightTutorial;
 	//delete multipleLightsTutorial;
-	//delete nanosuit;
+	delete nanosuit;
 	delete sceneGraph;
 }
 
 void  OpenGL_Renderer::RenderOpenGL()
 {
-	//nanosuit->Draw();
-	sceneGraph->Draw();
+	nanosuit->Draw();
+	//sceneGraph->Draw();
 
 	
 }

@@ -151,8 +151,6 @@ public:
 		aiMatrix4x4 t  = worldTransform;
 		t.Transpose();
 
-		
-
 		//glm::mat4 mat = aiMatrix4x4ToGlm(&worldTransform);
 
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, (float*)&t); 

@@ -1,7 +1,7 @@
 #ifndef GRAPH_MESH_H
 #define GRPAH_MESH_H
 
-
+#include <vector>
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -13,6 +13,8 @@
 #include "assimp/scene.h"
 #include "assimp/postprocess.h"
 #include "Shader.h"
+#include "Application.h"
+#include "ModuleTextures.h"
 #pragma comment(lib, "assimp/lib/assimp.lib")
 
 struct VertexGraph
@@ -64,7 +66,6 @@ public:
 		this->vertices.clear();
 		this->indices.clear();
 		this->textures.clear();
-
 	}
 
 

@@ -1,8 +1,8 @@
 c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\vc140.pdb
 c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\vc140.idb
-c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\configurationwindow.obj
 c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\consolelog.obj
 c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\fpsgraph.obj
+c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\gameobject.obj
 c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\imgui.obj
 c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\imgui_demo.obj
 c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\imgui_draw.obj
@@ -22,6 +22,9 @@ c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\opengl_render
 c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\tempmicro.obj
 c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\application.obj
 c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\colors.obj
+c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\componentmesh.obj
+c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\componenttransform.obj
+c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\configurationwindow.obj
 c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\my3dengine.ilk
 c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\my3dengine.exe
 c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\debug\my3dengine.pdb

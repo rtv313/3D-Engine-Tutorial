@@ -75,10 +75,15 @@
     <ClInclude Include="BasicLigthing.h" />
     <ClInclude Include="BasicTutorialCamera.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="ComponentMaterial.h" />
+    <ClInclude Include="ComponentMesh.h" />
+    <ClInclude Include="ComponentTransform.h" />
     <ClInclude Include="ConfigurationWindow.h" />
     <ClInclude Include="ConsoleLog.h" />
     <ClInclude Include="DirectionalLightTutorial.h" />
     <ClInclude Include="FpsGraph.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="GeometryTransformation.h" />
     <ClInclude Include="GeometryWithTransformView.h" />
     <ClInclude Include="Glew\include\GL\glew.h" />
@@ -116,6 +121,7 @@
     <ClInclude Include="SceneGraph.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="GeometryTexture.h" />
+    <ClInclude Include="ModuleScene.h" />
     <ClInclude Include="SpotLightTutorial.h" />
     <ClInclude Include="Tempmicro.h" />
     <ClInclude Include="TempMili.h" />
@@ -126,9 +132,12 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Colors.h" />
+    <ClCompile Include="ComponentMesh.cpp" />
+    <ClCompile Include="ComponentTransform.cpp" />
     <ClCompile Include="ConfigurationWindow.cpp" />
     <ClCompile Include="ConsoleLog.cpp" />
     <ClCompile Include="FpsGraph.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />

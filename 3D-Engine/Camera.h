@@ -35,8 +35,10 @@ public:
 	glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 	GLfloat yaw = -90.0f;	// Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
 	GLfloat pitch = 0.0f;
-	GLfloat lastX = App->window->width / 2.0;
-	GLfloat lastY = App->window->height / 2.0;
+	/*GLfloat lastX = App->window->width / 2.0;
+	GLfloat lastY = App->window->height / 2.0;*/
+	GLfloat lastX = SCREEN_WIDTH * SCREEN_SIZE / 2.0;
+	GLfloat lastY = SCREEN_HEIGHT * SCREEN_SIZE / 2.0;
 	GLfloat fov = 45.0f;
 	iPoint mousePosition = { 0,0 };
 	Camera() {};

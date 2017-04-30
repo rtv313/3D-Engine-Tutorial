@@ -13,7 +13,8 @@ ModuleCameraEditor::~ModuleCameraEditor()
 
 update_status ModuleCameraEditor::PreUpdate() 
 {
-	
+	mainCamera.do_movement();
+	mainCamera.mouse_movement();
 	return UPDATE_CONTINUE;
 }
 update_status ModuleCameraEditor::Update() 

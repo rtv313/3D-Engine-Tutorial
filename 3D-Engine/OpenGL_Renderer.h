@@ -18,6 +18,7 @@
 #include "MultipleLightsTutorial.h"
 #include "Model.h"
 #include "SceneGraph.h"
+#include "ModuleScene.h"
 
 class OpenGL_Renderer {
 public:
@@ -40,8 +41,10 @@ private:
 	//PointLightTutorial *pointLigthTutorial;
 	//SpotLightTutorial * spotLightTutorial;
 	//MultipleLightsTutorial * multipleLightsTutorial;
-	Model* nanosuit;
-	SceneGraph * sceneGraph;
-
+	/*Model* nanosuit; */
+	/*SceneGraph * sceneGraph;*/
+	/*GameObject * gameObject; */
+	ModuleScene *moduleScene;
+	
 }; 
 #endif // !__RENDER_OBJECT_H_

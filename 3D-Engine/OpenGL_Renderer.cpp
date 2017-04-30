@@ -23,8 +23,13 @@ OpenGL_Renderer::OpenGL_Renderer()
 	//pointLigthTutorial = new PointLightTutorial();
 	//spotLightTutorial = new SpotLightTutorial();
 	//multipleLightsTutorial = new MultipleLightsTutorial();
-	nanosuit = new Model("../Models/street/Street.obj");
-	sceneGraph = new SceneGraph("../Models/street/Street.obj");
+	/*nanosuit = new Model("../Models/street/Street.obj"); */
+	//sceneGraph = new SceneGraph("../Models/Street/Street.obj");
+	moduleScene = new ModuleScene();
+	moduleScene->CreateGameObject("../Models/Nanosuit/nanosuit.obj"); //"../Models/Nanosuit/nanosuit.obj"
+
+	//gameObject = moduleScene->CreateGameObject("../Models/Nanosuit/nanosuit.obj"); //"../Models/Nanosuit/nanosuit.obj"
+	//gameObject->shader = moduleScene->GetShader();
 
 }
 OpenGL_Renderer::~OpenGL_Renderer() 
@@ -43,15 +48,20 @@ OpenGL_Renderer::~OpenGL_Renderer()
 	//delete pointLigthTutorial;
 	//delete spotLightTutorial;
 	//delete multipleLightsTutorial;
-	delete nanosuit;
-	delete sceneGraph;
+	/*delete nanosuit; */
+	//delete sceneGraph;
+	delete moduleScene;
+	//delete gameObject;
 }
 
 void  OpenGL_Renderer::RenderOpenGL()
 {
-	nanosuit->Draw();
+	//nanosuit->Draw();
 	//sceneGraph->Draw();
-
-	
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glEnable(GL_DEPTH_TEST); // z-finding
+		moduleScene->Update();
+	glDisable(GL_DEPTH_TEST);
 }
 

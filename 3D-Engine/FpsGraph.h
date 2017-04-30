@@ -1,6 +1,6 @@
 #ifndef FPS_GRAPH_H
 #define FPS_GRAPH_H
-#include <vector>; 
+#include <vector>
 
 class FpsGraph 
 {

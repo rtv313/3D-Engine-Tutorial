@@ -2,11 +2,12 @@
 #define __MODULE_CAMERA_EDITOR_H
 #include "Globals.h"
 #include "Module.h"
-
+#include "Camera.h"
 
 class ModuleCameraEditor :public Module 
 {
 public:
+	Camera mainCamera;
 	ModuleCameraEditor();
 	~ModuleCameraEditor();
 	

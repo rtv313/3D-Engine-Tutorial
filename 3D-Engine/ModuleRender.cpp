@@ -37,7 +37,6 @@ bool ModuleRender::Init()
 	}
 
 	opengl_render = new OpenGL_Renderer();
-
 	return ret;
 }
 
@@ -49,7 +48,8 @@ update_status ModuleRender::PreUpdate()
 // Called every draw update
 update_status ModuleRender::Update()
 {
-	opengl_render->RenderOpenGL();
+	//App->scene->UpdateGameObjects();
+	//opengl_render->RenderOpenGL();
 	return UPDATE_CONTINUE;
 }
 

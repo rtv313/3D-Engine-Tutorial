@@ -44,7 +44,5 @@ private:
 	/*Model* nanosuit; */
 	/*SceneGraph * sceneGraph;*/
 	/*GameObject * gameObject; */
-	ModuleScene *moduleScene;
-	
 }; 
 #endif // !__RENDER_OBJECT_H_

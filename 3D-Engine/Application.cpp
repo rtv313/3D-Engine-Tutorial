@@ -17,6 +17,7 @@ Application::Application()
 	modules.push_back(camera_editor = new ModuleCameraEditor());
 	modules.push_back(textures = new ModuleTextures());
 	modules.push_back(editor = new ModuleEditor());
+	modules.push_back(scene = new ModuleScene());
 	modules.push_back(renderer = new ModuleRender());
 	modules.push_back(audio = new ModuleAudio());
 	

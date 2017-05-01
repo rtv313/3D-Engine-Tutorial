@@ -17,6 +17,7 @@ class ModuleAudio;
 class ModuleFadeToBlack;
 class ModuleCameraEditor;
 class ModuleEditor;
+class ModuleScene;
 
 class Application
 {
@@ -38,6 +39,7 @@ public:
 	ModuleFadeToBlack* fade;
 	ModuleCameraEditor * camera_editor;
 	ModuleEditor * editor;
+	ModuleScene * scene;
 	float deltaTime;
 	float lastFrame;
 

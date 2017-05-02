@@ -19,7 +19,7 @@ public:
 	std::vector<GraphMesh> meshes;
 	ComponentMesh(aiNode* node, const aiScene* scene,GameObject* go);
 	~ComponentMesh();
-	void Draw();
+	void ComponentDraw();
 	void Clear();
 	update_status Update();
 	
@@ -28,6 +28,7 @@ private:
 	void  CreateMeshes(aiNode* node, const aiScene* scene);
 	GraphMesh  processMesh(aiMesh * mesh, const aiScene* scene);
 	std::vector<TextureGraph> loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string typeName);
+	void CreateMaterials(aiNode* node, const aiScene* scene);
 };
 
 #endif // !COMPONENT_MESH:H

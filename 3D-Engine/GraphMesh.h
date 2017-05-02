@@ -15,6 +15,7 @@
 #include "Shader.h"
 #include "Application.h"
 #include "ModuleTextures.h"
+#include "ComponentMaterial.h"
 #pragma comment(lib, "assimp/lib/assimp.lib")
 
 struct VertexGraph
@@ -37,13 +38,14 @@ class GraphMesh
 {
 public:
 
-	unsigned material = 0;
+	unsigned int materialId = 0;
 	std::vector<VertexGraph> vertices;
 	std::vector<GLuint> indices;
 	std::vector<TextureGraph> textures;
 
-	GraphMesh(std::vector<VertexGraph> vertices, std::vector<GLuint> indices, std::vector<TextureGraph> textures)
+	GraphMesh(std::vector<VertexGraph> vertices, std::vector<GLuint> indices, std::vector<TextureGraph> textures,unsigned int materialId)
 	{
+		this->materialId = materialId;
 		this->vertices = vertices;
 		this->indices = indices;
 		this->textures = textures;
@@ -70,7 +72,7 @@ public:
 
 
 	// Render the mesh
-	void Draw(Shader shader)
+	void Draw(Material *material)
 	{
 		// Bind appropriate textures
 		GLuint diffuseNr = 1;
@@ -88,12 +90,9 @@ public:
 				ss << specularNr++; // Transfer GLuint to stream
 			number = ss.str();
 			// Now set the sampler to the correct texture unit
-			glUniform1i(glGetUniformLocation(shader.Program, (name + number).c_str()), i);
+			glUniform1i(glGetUniformLocation(material->shader.Program, (name + number).c_str()), i);
 			// And finally bind the texture
-			App->textures->textures;
-			//glBindTexture(GL_TEXTURE_2D, this->textures[i].id);
 			glBindTexture(GL_TEXTURE_2D, this->textures[i].id);
-			
 		}
 
 		// Also set each mesh's shininess property to a default value (if you want you could extend this to another mesh property and possibly change this value)
@@ -110,9 +109,6 @@ public:
 			glActiveTexture(GL_TEXTURE0 + i);
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
-
-		
-
 	}
 
 private:

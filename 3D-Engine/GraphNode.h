@@ -115,7 +115,7 @@ public:
 		}
 
 		// Return a mesh object created from the extracted mesh data
-		return GraphMesh(vertices, indices, textures);
+		return GraphMesh(vertices, indices, textures, mesh->mMaterialIndex);
 	}
 
 

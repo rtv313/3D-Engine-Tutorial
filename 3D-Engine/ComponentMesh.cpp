@@ -1,11 +1,15 @@
 #include "ComponentMesh.h"
+#include "ComponentMaterial.h"
 #include "GameObject.h"
 #include "Application.h"
 #include "ModuleCameraEditor.h"
+#include "ModuleScene.h"
+#include "ModuleEditor.h"
 #include "glm/gtc/type_ptr.hpp"
 
 ComponentMesh::ComponentMesh(aiNode* node, const aiScene* scene, GameObject* go):Component(go)
 {
+	type = MESH;
 	CreateMeshes(node, scene);
 }
 
@@ -33,6 +37,49 @@ void ComponentMesh::CreateMeshes(aiNode* node, const aiScene* scene)
 		aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
 		this->meshes.push_back(this->processMesh(mesh, scene));
 	}
+
+	CreateMaterials(node,scene);
+}
+
+void ComponentMesh::CreateMaterials(aiNode* node, const aiScene* scene)
+{
+	std::map <int, int> materials;
+	//collect all materials ids
+	for (GLuint i = 0; i < node->mNumMeshes; i++)
+	{
+		aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
+		
+		if (mesh->mMaterialIndex >= 0) {
+			materials[mesh->mMaterialIndex] = mesh->mMaterialIndex;
+		}
+	}
+
+	if (materials.size() == 0) 
+	{
+		// shader standard  and material
+	}
+
+	ComponentMaterial * componentMaterial = new ComponentMaterial(my_go);
+
+	for (std::map<int, int>::iterator it = materials.begin(); it != materials.end(); ++it)
+	{
+		aiMaterial* mat = scene->mMaterials[it->first];
+		Material* material = new Material();
+		material->id = it->first;
+		mat->Get(AI_MATKEY_NAME, material->name);
+		mat->Get(AI_MATKEY_COLOR_DIFFUSE, material->colorDiffuse);
+		mat->Get(AI_MATKEY_COLOR_SPECULAR, material->colorSpecular);
+		mat->Get(AI_MATKEY_COLOR_AMBIENT, material->colorAmbient);
+		mat->Get(AI_MATKEY_COLOR_EMISSIVE, material->colorEmissive);
+		mat->Get(AI_MATKEY_COLOR_TRANSPARENT, material->colorTransparent);
+		mat->Get(AI_MATKEY_SHININESS, material->shininess);
+		mat->Get(AI_MATKEY_SHININESS_STRENGTH, material->shininessStrength);
+		// remainder create standard shader
+		material->shader = App->scene->GetShader();
+		componentMaterial->materials[material->id]=material;
+	}
+
+	my_go->components.push_back(componentMaterial);
 }
 
 GraphMesh  ComponentMesh::processMesh(aiMesh * mesh, const aiScene* scene)
@@ -93,7 +140,7 @@ GraphMesh  ComponentMesh::processMesh(aiMesh * mesh, const aiScene* scene)
 	}
 
 	// Return a mesh object created from the extracted mesh data
-	return GraphMesh(vertices, indices, textures);
+	return GraphMesh(vertices, indices, textures,mesh->mMaterialIndex);
 }
 
 std::vector<TextureGraph> ComponentMesh::loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string typeName) 
@@ -115,29 +162,42 @@ std::vector<TextureGraph> ComponentMesh::loadMaterialTextures(aiMaterial* mat, a
 	return textures;
 }
 
-void ComponentMesh::Draw( ) 
+void ComponentMesh::ComponentDraw( ) 
 {
-	Shader shader = my_go->shader;
-	shader.Use();
-	aiMatrix4x4 t = my_go->transform->worldTransform;
-	t.Transpose();
+	ComponentMaterial * componentMaterial;
 
-	glm::mat4 projection = App->camera_editor->mainCamera.getProjectionMatrix();
-	glm::mat4 view = App->camera_editor->mainCamera.getViewMatrix();
-
-	glUniformMatrix4fv(glGetUniformLocation(shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
-	glUniformMatrix4fv(glGetUniformLocation(shader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
-	glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, (float*)&t);
-	
+	bool flagMaterialError = false;
 	for (int i = 0; i < meshes.size(); i++)
-	{
-		meshes[i].Draw(shader);
-	}
+	{  
+		for (int x = 0; x < my_go->components.size(); x++) 
+		{
+			if (my_go->components[i]->type == MATERIAL) 
+			{
+				componentMaterial =(ComponentMaterial*) my_go->components[i];
+				break;
+			}
+			App->editor->log.AddLog("NO MATERIAL COMPONENT WE CANT RENDER");
+		}
 
+		//Extract Material
+		Material* mat = componentMaterial->materials[meshes[i].materialId];
+		mat->shader.Use();
+		aiMatrix4x4 t = my_go->transform->worldTransform;
+		t.Transpose();
+
+		glm::mat4 projection = App->camera_editor->mainCamera.getProjectionMatrix();
+		glm::mat4 view = App->camera_editor->mainCamera.getViewMatrix();
+
+		glUniformMatrix4fv(glGetUniformLocation(mat->shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+		glUniformMatrix4fv(glGetUniformLocation(mat->shader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(glGetUniformLocation(mat->shader.Program, "model"), 1, GL_FALSE, (float*)&t);
+
+		meshes[i].Draw(mat);
+	}
 }
 
 update_status ComponentMesh::Update() 
 {
-	Draw();
+	ComponentDraw();
 	return UPDATE_CONTINUE;
 }

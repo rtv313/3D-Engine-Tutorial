@@ -318,6 +318,9 @@
     <ClCompile Include="ModuleScene.cpp">
       <Filter>Core Modules</Filter>
     </ClCompile>
+    <ClCompile Include="ComponentMaterial.cpp">
+      <Filter>GameObject/Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader.fs">

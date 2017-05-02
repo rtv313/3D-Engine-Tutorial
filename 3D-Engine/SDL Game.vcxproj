@@ -155,6 +155,7 @@
     <ClCompile Include="ModuleTextures.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
     <ClCompile Include="OpenGL_Renderer.cpp" />
+    <ClCompile Include="ComponentMaterial.cpp" />
     <ClCompile Include="TempMicro.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,7 @@
 
 ComponentTransform::ComponentTransform(GameObject * go) :Component(go) 
 {
-
+	type = TRANSFORM;
 }
 
 update_status ComponentTransform::Update() 

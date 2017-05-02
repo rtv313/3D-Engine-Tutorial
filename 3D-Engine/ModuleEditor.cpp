@@ -52,6 +52,7 @@ update_status ModuleEditor::Update()
 	//ImGui::End(); // end window
 	confWindow.Draw();
 	menu.Draw();
+	hierarchyWindow.Draw();
 	return UPDATE_CONTINUE;
 }
 

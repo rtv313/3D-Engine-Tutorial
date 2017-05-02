@@ -18,8 +18,8 @@ public:
 	
 	std::vector<GameObject*> gameObjects;
 	std::string directory;
-	Shader shader;
-
+	GameObject * root;
+	
 	ModuleScene();
 	~ModuleScene();
 	Shader GetShader();

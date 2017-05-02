@@ -175,9 +175,6 @@
     <ClInclude Include="GraphMesh.h">
       <Filter>SceneGraph</Filter>
     </ClInclude>
-    <ClInclude Include="GraphMaterial.h">
-      <Filter>SceneGraph</Filter>
-    </ClInclude>
     <ClInclude Include="ModuleEditor.h">
       <Filter>Core Modules</Filter>
     </ClInclude>
@@ -237,6 +234,9 @@
     </ClInclude>
     <ClInclude Include="ModuleScene.h">
       <Filter>Core Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="HierarchyWindow.h">
+      <Filter>ModuleEditorModules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -320,6 +320,9 @@
     </ClCompile>
     <ClCompile Include="ComponentMaterial.cpp">
       <Filter>GameObject/Components</Filter>
+    </ClCompile>
+    <ClCompile Include="HierarchyWindow.cpp">
+      <Filter>ModuleEditorModules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

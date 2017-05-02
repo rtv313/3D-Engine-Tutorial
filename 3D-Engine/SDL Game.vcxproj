@@ -88,9 +88,9 @@
     <ClInclude Include="GeometryWithTransformView.h" />
     <ClInclude Include="Glew\include\GL\glew.h" />
     <ClInclude Include="Globals.h" />
-    <ClInclude Include="GraphMaterial.h" />
     <ClInclude Include="GraphMesh.h" />
     <ClInclude Include="GraphNode.h" />
+    <ClInclude Include="HierarchyWindow.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
     <ClInclude Include="imgui\imgui_impl_sdl_gl3.h" />
@@ -138,6 +138,7 @@
     <ClCompile Include="ConsoleLog.cpp" />
     <ClCompile Include="FpsGraph.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="HierarchyWindow.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />

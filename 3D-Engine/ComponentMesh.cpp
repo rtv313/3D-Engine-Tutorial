@@ -176,7 +176,8 @@ void ComponentMesh::ComponentDraw( )
 				componentMaterial =(ComponentMaterial*) my_go->components[i];
 				break;
 			}
-			App->editor->log.AddLog("NO MATERIAL COMPONENT WE CANT RENDER");
+			std::string error = "NO MATERIAL COMPONENT, WE CANT RENDER IN OBJECT: " + my_go->name;
+			App->editor->log.AddLog(error.c_str());
 		}
 
 		//Extract Material
@@ -197,7 +198,7 @@ void ComponentMesh::ComponentDraw( )
 }
 
 update_status ComponentMesh::Update() 
-{
+{	
 	ComponentDraw();
 	return UPDATE_CONTINUE;
 }

@@ -1,0 +1,17 @@
+#ifndef  HIERARCHY_WINDOW_H
+#define HIERARCHY_WINDOW_H
+#include "imgui/imgui.h"
+#include "imgui/imgui_impl_sdl_gl3.h"
+
+class GameObject;
+
+class HierarchyWindow 
+{
+public:
+	HierarchyWindow();
+	~HierarchyWindow();
+	void DrawTree(GameObject* node);
+	void Draw();
+};
+
+#endif

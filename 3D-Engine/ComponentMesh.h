@@ -2,7 +2,6 @@
 #define COMPONENT_MESH_H
 
 #include <string>
-#include "GraphMaterial.h"
 #include "Glew/include/GL/glew.h"
 
 #include "Shader.h"

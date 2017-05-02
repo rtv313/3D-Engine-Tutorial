@@ -7,6 +7,7 @@
 #include "Menu.h"
 #include "FpsGraph.h"
 #include "ConfigurationWindow.h"
+#include "HierarchyWindow.h"
 
 class ModuleEditor : public Module 
 {
@@ -24,6 +25,7 @@ public:
 	Log log;
 	Menu menu;
 	ConfigurationWindow confWindow;
+	HierarchyWindow  hierarchyWindow;
 	
 };
 #endif

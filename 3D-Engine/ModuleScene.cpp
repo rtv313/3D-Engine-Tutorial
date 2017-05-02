@@ -30,7 +30,8 @@ GameObject* ModuleScene::CreateGameObject(std::string path)
 	this->directory = path.substr(0, path.find_last_of('/'));
 
 	// Process ASSIMP's root node recursively
-	return  this->CreateNodes(scene->mRootNode, scene, nullptr);
+	root = this->CreateNodes(scene->mRootNode, scene, nullptr);
+	return root;
 }
 
 GameObject * ModuleScene::CreateNodes(aiNode* node, const aiScene* scene, GameObject* parent)
@@ -108,6 +109,6 @@ update_status ModuleScene::Update()
 
 bool ModuleScene::Init() 
 {
-	CreateGameObject("../Models/Nanosuit/nanosuit.obj");
+	CreateGameObject("../Models/street/Street.obj");
 	return true;
 }

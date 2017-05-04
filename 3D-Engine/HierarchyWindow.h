@@ -8,6 +8,7 @@ class GameObject;
 class HierarchyWindow 
 {
 public:
+	GameObject* selectedGameObject=nullptr;
 	HierarchyWindow();
 	~HierarchyWindow();
 	void DrawTree(GameObject* node);

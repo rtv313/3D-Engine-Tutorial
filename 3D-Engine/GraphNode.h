@@ -6,6 +6,7 @@
 #include "assimp/postprocess.h"
 #include "GraphMesh.h"
 #include "SceneGraph.h"
+#include "ComponentMaterial.h"
 
 class GraphNode 
 {
@@ -152,11 +153,12 @@ public:
 		t.Transpose();
 
 		//glm::mat4 mat = aiMatrix4x4ToGlm(&worldTransform);
-
+		Material * material = new Material();
+		material->shader = shader;
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, (float*)&t); 
 		for (int i = 0; i < meshes.size(); i++) 
 		{
-			meshes[i].Draw(shader);
+			meshes[i].Draw(material);
 		}
 
 		for (int i = 0; i < childs.size(); i++) 

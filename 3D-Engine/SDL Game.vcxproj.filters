@@ -65,6 +65,9 @@
     <Filter Include="GameObject/Components">
       <UniqueIdentifier>{60678a12-de85-4d58-8670-e4bfeba52aea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Brofiler">
+      <UniqueIdentifier>{e2bf691b-1216-41c0-894b-ca27d2b4a2f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ModuleRender.h">
@@ -238,6 +241,12 @@
     <ClInclude Include="HierarchyWindow.h">
       <Filter>ModuleEditorModules</Filter>
     </ClInclude>
+    <ClInclude Include="Brofiler\Brofiler.h">
+      <Filter>Brofiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Inspector.h">
+      <Filter>ModuleEditorModules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -322,6 +331,9 @@
       <Filter>GameObject/Components</Filter>
     </ClCompile>
     <ClCompile Include="HierarchyWindow.cpp">
+      <Filter>ModuleEditorModules</Filter>
+    </ClCompile>
+    <ClCompile Include="Inspector.cpp">
       <Filter>ModuleEditorModules</Filter>
     </ClCompile>
   </ItemGroup>

@@ -5,6 +5,7 @@
 #include "Globals.h"
 #include "ComponentTransform.h"
 #include "Shader.h"
+
 class GameObject
 {
 public:
@@ -21,6 +22,7 @@ public:
 	GameObject * parent;
 	ComponentTransform * transform;
 	std::string directory;	
+	
 };
 
 #endif // !GAME_OBJECT_H_

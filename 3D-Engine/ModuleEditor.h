@@ -8,6 +8,7 @@
 #include "FpsGraph.h"
 #include "ConfigurationWindow.h"
 #include "HierarchyWindow.h"
+#include "Inspector.h"
 
 class ModuleEditor : public Module 
 {
@@ -20,12 +21,10 @@ public:
 	update_status Update();
 	update_status PostUpdate();
 	bool CleanUp();
-	char * text ="hola";
-	float f=0.0;
 	Log log;
 	Menu menu;
 	ConfigurationWindow confWindow;
 	HierarchyWindow  hierarchyWindow;
-	
+	Inspector inspector;
 };
 #endif

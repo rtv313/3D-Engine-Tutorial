@@ -53,6 +53,7 @@ update_status ModuleEditor::Update()
 	confWindow.Draw();
 	menu.Draw();
 	hierarchyWindow.Draw();
+	inspector.Draw();
 	return UPDATE_CONTINUE;
 }
 

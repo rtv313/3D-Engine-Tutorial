@@ -1,9 +1,10 @@
 #ifndef  HIERARCHY_WINDOW_H
 #define HIERARCHY_WINDOW_H
-#include "imgui/imgui.h"
-#include "imgui/imgui_impl_sdl_gl3.h"
+#include <vector>
 
 class GameObject;
+
+
 
 class HierarchyWindow 
 {

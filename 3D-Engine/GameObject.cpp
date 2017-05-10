@@ -11,6 +11,8 @@ GameObject::GameObject(aiNode* node, const aiScene* scene, std::string directory
 	
 	ComponentMesh * meshComponent = new ComponentMesh(node,scene,this);
 	components.push_back(meshComponent);
+
+	
 }
 
 GameObject::~GameObject() 
@@ -18,6 +20,7 @@ GameObject::~GameObject()
 	this->name;
 	this->childs;
 	delete transform;
+	
 	for (int i = 0; i < components.size(); i++) 
 	{
 		delete components[i];

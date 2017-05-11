@@ -6,6 +6,10 @@
 #include "GameObject.h"
 #include "glm/gtc/matrix_transform.hpp"
 
+static float positionArray[3] = {0.0,0.0,.0};
+static float scaleArray[3] = { 1.0, 1.0, 1.0};
+static float rotationArray[3] = { 0.0,0.0,0.0};
+
 Inspector::Inspector() 
 {
 }
@@ -19,51 +23,48 @@ void Inspector::Draw()
 	ImGui::Begin("Inspector");
 	ImGui::Text("Inspector");
 
-	if (gameObject != nullptr)
+
+	if (gameObjectActual != nullptr)
 	{
 		ImVec4 color(255, 0, 0, 1);
-		ImGui::TextColored(color, gameObject->name.c_str());
+		ImGui::TextColored(color, gameObjectActual->name.c_str());
 		ImGui::Separator();
 		if (ImGui::CollapsingHeader("Transform"))
 		{
-			aiVector3D position = gameObject->transform->position;
-			static float positionArray[3] = { position.x, position.y, position.z };
+			aiVector3D position = gameObjectActual->transform->position;
+			positionArray[0] = position.x;
+			positionArray[1] = position.y;
+			positionArray[2] = position.z;
 			ImGui::DragFloat3("Position", positionArray);
 			position.x = positionArray[0];
 			position.y = positionArray[1];
 			position.z = positionArray[2];
-			gameObject->transform->position = position;
+			gameObjectActual->transform->position = position;
 			ImGui::Separator();
-
-			aiVector3D scale = gameObject->transform->scale;
-			static float scaleArray[3] = { scale.x, scale.y, scale.z };
+			////////////////////////////////////////////////////////////////////
+			aiVector3D scale = gameObjectActual->transform->scale;
+			scaleArray[0] = scale.x;
+			scaleArray[1] = scale.y;
+			scaleArray[2] = scale.z;
 			ImGui::DragFloat3("Scale", scaleArray);
 			scale.x = scaleArray[0];
 			scale.y = scaleArray[1];
 			scale.z = scaleArray[2];
-			gameObject->transform->scale = scale;
+			gameObjectActual->transform->scale = scale;
 			ImGui::Separator();
+			////////////////////////////////////////////////////////////////////////
 
+			aiVector3D rotation = gameObjectActual->transform->rotationDegrees;
+			rotationArray[0] = rotation.x; 
+			rotationArray[1] = rotation.y;
+			rotationArray[2] = rotation.z;
 
-			aiVector3D rotation;
-			static float rotationArray[4] = { rotation.x, rotation.y, rotation.z,0.1f };
 			ImGui::DragFloat3("Rotation", rotationArray);
 
-			rotation.x = rotationArray[0];
-			rotation.y = rotationArray[1];
-			rotation.z = rotationArray[2];
-
-			aiQuaternion rotX = aiQuaternion(aiVector3D(1.0, 0.0, 0.0), glm::radians(rotation.x));
-			aiQuaternion rotY = aiQuaternion(aiVector3D(0.0, 1.0, 0.0), glm::radians(rotation.y));
-			aiQuaternion rotZ = aiQuaternion(aiVector3D(0.0, 0.0, 1.0), glm::radians(rotation.z));
-
-
-			aiQuaternion finalRotation;
-			finalRotation = finalRotation*rotX;
-			finalRotation = finalRotation*rotY;
-			finalRotation = finalRotation*rotZ;
+			gameObjectActual->transform->rotationDegrees.x = rotationArray[0];
+			gameObjectActual->transform->rotationDegrees.y = rotationArray[1];
+			gameObjectActual->transform->rotationDegrees.z = rotationArray[2];
 			
-			gameObject->transform->rotation = finalRotation;
 		}
 
 	}
@@ -71,3 +72,8 @@ void Inspector::Draw()
 	ImGui::End();
 }
 
+
+void Inspector::ChangeObject(GameObject * const newGameObject) 
+{
+	gameObjectActual = newGameObject;
+}

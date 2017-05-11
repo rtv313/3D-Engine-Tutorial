@@ -35,7 +35,7 @@ void HierarchyWindow::DrawTree(GameObject* node)
 {
 	int static fatherNode = 0;
 	ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_OpenOnArrow;
-	App->editor->inspector.gameObject = selectedGameObject;
+	App->editor->inspector.ChangeObject(selectedGameObject);
 	
 	if (selectedGameObject == node)
 		node_flags |= ImGuiTreeNodeFlags_Selected;

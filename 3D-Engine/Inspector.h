@@ -2,13 +2,16 @@
 #define INSPECTOR_H
 
 class GameObject;
-class Inspector 
+class Inspector
 {
 public:
-	GameObject* gameObject = nullptr;
+	
+	GameObject* gameObjectActual = nullptr;
 	Inspector();
 	~Inspector();
 	void Draw();
+	void ChangeObject(GameObject * const newGameObject);
+
 };
 
 #endif // !INSPECTOR_H

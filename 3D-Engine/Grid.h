@@ -19,9 +19,9 @@ private:
 	GLuint VBOh, VAOh, EBOh;
 	GLuint VBOv, VAOv, EBOv;
 	int size;
-	GLfloat *verticesHorizontal;
-	GLfloat *verticesVertical;
-	GLuint * indices;
+	std::vector<GLfloat> verticesHorizontal;
+	std::vector<GLfloat> verticesVertical;
+	std::vector<GLuint> indices;
 	uint indicesSize = 0;
 	Shader *shader;
 };

@@ -4,70 +4,69 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
+
+#define VERTEX_FOR_LINE 6
+#define INDECES_FOR_LINE 2
 Grid::Grid()
 {
 	posX = 0.0f;
 	posY = 0.0f;
 	posZ = 0.0f;
-
-	size = 8; 
-
+	
+	int size = 15;
 	//x,y,z * 2 for the two points needed for a line and *2 for the vertical lines
-	vertices = new GLfloat[size*3*2]; 
-	indices = new GLuint[size*2];
+	verticesHorizontal = new GLfloat[size *VERTEX_FOR_LINE];
+	indices = new GLuint[size *INDECES_FOR_LINE];
+	verticesVertical = new GLfloat[size * VERTEX_FOR_LINE];
+
 	int componentVertexIndex = 0;
 	int id = 0;
 
-	GLfloat x = -(GLfloat)(size/2);
-	int counterVertices = 0;
+	GLfloat x = -(GLfloat)(size /2);
 	int indexID = 0;
 
-	for (int i = 0; i < size; i++) 
+	for (int i = -size / 2; i <= size / 2; i++)
 	{
-		//horizontal lines
-		vertices[counterVertices] = x; counterVertices++; // first point
-		vertices[counterVertices] = 0.0; counterVertices++;
-		vertices[counterVertices] = size; counterVertices++;
-		indices[indexID] = indexID;
-		indexID++;
+		indices[id] = id; id++;
+		verticesHorizontal[componentVertexIndex] = size / 2; componentVertexIndex++;
+		verticesHorizontal[componentVertexIndex] = 0; componentVertexIndex++;
+		verticesHorizontal[componentVertexIndex] = i; componentVertexIndex++;
 
-		vertices[counterVertices] = x; counterVertices++; // second point
-		vertices[counterVertices] = 0.0; counterVertices++;
-		vertices[counterVertices] = -size; counterVertices++;
-		indices[indexID] = indexID;
-		indexID++;
+		indices[id] = id; id++;
+		verticesHorizontal[componentVertexIndex] = -size / 2; componentVertexIndex++;
+		verticesHorizontal[componentVertexIndex] = 0; componentVertexIndex++;
+		verticesHorizontal[componentVertexIndex] = i; componentVertexIndex++;
+	}
 
-		// vertical lines
+	componentVertexIndex = 0;
 
-		//vertices[counterVertices] = size; counterVertices++; // first point
-		//vertices[counterVertices] = 0.0; counterVertices++;
-		//vertices[counterVertices] = x; counterVertices++;
-		//indices[indexID] = indexID;
-		//indexID++;
+	for (int i = -size / 2; i <= size / 2; i++)
+	{
+		verticesVertical[componentVertexIndex] = i; componentVertexIndex++;
+		verticesVertical[componentVertexIndex] = 0; componentVertexIndex++;
+		verticesVertical[componentVertexIndex] = -size / 2; componentVertexIndex++;
 
-		//vertices[counterVertices] = -size; counterVertices++; // second point
-		//vertices[counterVertices] = 0.0; counterVertices++;
-		//vertices[counterVertices] = x; counterVertices++;
-		//indices[indexID] = indexID;
-		//indexID++;
-		//
-		x++;
+		verticesVertical[componentVertexIndex] = i; componentVertexIndex++;
+		verticesVertical[componentVertexIndex] = 0; componentVertexIndex++;
+		verticesVertical[componentVertexIndex] = size / 2; componentVertexIndex++;
 	}
 
 
 
-	indicesSize = indexID;
+	indicesSize = id;
 
-	glGenVertexArrays(1, &this->VAO);
-	glGenBuffers(1, &this->VBO);
-	glGenBuffers(1, &this->EBO);
 
-	glBindVertexArray(VAO);
+	//Horizontal lines
+	glGenVertexArrays(1, &this->VAOh);
+	glGenBuffers(1, &this->VBOh);
+	glGenBuffers(1, &this->EBOh);
 
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, size*24, vertices, GL_STATIC_DRAW);
+	glBindVertexArray(VAOh);
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBOh);
+	glBufferData(GL_ARRAY_BUFFER, size *24, verticesHorizontal, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBOh);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(GLuint) *indicesSize, indices, GL_STATIC_DRAW);
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
@@ -75,18 +74,43 @@ Grid::Grid()
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0); 
 	glBindVertexArray(0); 
+
+	//Vertical lines
+	glGenVertexArrays(1, &this->VAOv);
+	glGenBuffers(1, &this->VBOv);
+	glGenBuffers(1, &this->EBOv);
+
+	glBindVertexArray(VAOv);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBOv);
+	glBufferData(GL_ARRAY_BUFFER, size * 24, verticesVertical, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBOv);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) *indicesSize, indices, GL_STATIC_DRAW);
+
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+
 	shader = new Shader(pVSFileName, pFSFileName);
 	
 }
 
 Grid::~Grid()
 {
-	delete vertices;
+	delete verticesHorizontal;
 	delete indices;
+	delete verticesVertical;
 	delete shader;
-	glDeleteVertexArrays(1, &VAO);
-	glDeleteBuffers(1, &VBO);
-	glDeleteBuffers(1, &EBO);
+	glDeleteVertexArrays(1, &VAOh);
+	glDeleteBuffers(1, &VBOh);
+	glDeleteBuffers(1, &EBOh);
+
+	glDeleteVertexArrays(1, &VAOv);
+	glDeleteBuffers(1, &VBOv);
+	glDeleteBuffers(1, &EBOv);
 }
 
 void Grid::Draw()
@@ -117,7 +141,12 @@ void Grid::Draw()
 	glm::mat4 model;
 	model = glm::translate(model, glm::vec3(posX,posY, posZ));
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-	glBindVertexArray(VAO);
+
+	glBindVertexArray(VAOh);
+	glDrawElements(GL_LINES, indicesSize, GL_UNSIGNED_INT, 0);
+	glBindVertexArray(0);
+
+	glBindVertexArray(VAOv);
 	glDrawElements(GL_LINES, indicesSize, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
 

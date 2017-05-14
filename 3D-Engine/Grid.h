@@ -16,13 +16,14 @@ public:
 	~Grid();
 	void Draw();
 private:
-	GLuint VBO, VAO, EBO;
+	GLuint VBOh, VAOh, EBOh;
+	GLuint VBOv, VAOv, EBOv;
 	int size;
-	GLfloat *vertices;
+	GLfloat *verticesHorizontal;
+	GLfloat *verticesVertical;
 	GLuint * indices;
 	uint indicesSize = 0;
 	Shader *shader;
-	
 };
 	
 #endif // !GRID_H

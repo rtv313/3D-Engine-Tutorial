@@ -91,6 +91,7 @@
     <ClInclude Include="Globals.h" />
     <ClInclude Include="GraphMesh.h" />
     <ClInclude Include="GraphNode.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="HierarchyWindow.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
@@ -140,6 +141,7 @@
     <ClCompile Include="ConsoleLog.cpp" />
     <ClCompile Include="FpsGraph.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="HierarchyWindow.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />

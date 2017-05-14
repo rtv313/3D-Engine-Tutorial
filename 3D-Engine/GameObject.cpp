@@ -3,6 +3,14 @@
 #include "ComponentMesh.h"
 #include "Glew/include/GL/glew.h"
 
+
+GameObject::GameObject() 
+{
+	transform = new ComponentTransform(this);
+	this->directory = "";
+	this->name = "New Object";
+}
+
 GameObject::GameObject(aiNode* node, const aiScene* scene, std::string directory)
 {
 	transform = new ComponentTransform(this);
@@ -11,8 +19,6 @@ GameObject::GameObject(aiNode* node, const aiScene* scene, std::string directory
 	
 	ComponentMesh * meshComponent = new ComponentMesh(node,scene,this);
 	components.push_back(meshComponent);
-
-	
 }
 
 GameObject::~GameObject() 

@@ -1,4 +1,11 @@
-﻿  ComponentTransform.cpp
-c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\componenttransform.cpp(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+﻿  Grid.cpp
+c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\tempmili.h(14): warning C4244: 'initializing': conversion from 'float' to 'Uint64', possible loss of data
+c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\tempmili.h(30): warning C4244: 'return': conversion from 'Uint64' to 'double', possible loss of data
+c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\tempmili.h(32): warning C4244: 'return': conversion from 'Uint64' to 'double', possible loss of data
+c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\tempmili.h(41): warning C4244: 'return': conversion from 'Uint64' to 'double', possible loss of data
+c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\grid.cpp(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\camera.h(118): warning C4244: '-=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\grid.cpp(30): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
+c:\users\hellr\documents\github\3d-engine-tutorial\3d-engine\grid.cpp(36): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
   SDL Game.vcxproj -> C:\Users\hellr\Documents\GitHub\3D-Engine-Tutorial\3D-Engine\Debug\My3dEngine.exe
   SDL Game.vcxproj -> C:\Users\hellr\Documents\GitHub\3D-Engine-Tutorial\3D-Engine\Debug\My3dEngine.pdb (Full PDB)

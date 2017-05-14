@@ -4,7 +4,7 @@
 #include "Application.h"
 #include "ModuleScene.h"
 #include "GameObject.h"
-#include "glm/gtc/matrix_transform.hpp"
+
 
 static float positionArray[3] = {0.0,0.0,.0};
 static float scaleArray[3] = { 1.0, 1.0, 1.0};
@@ -53,14 +53,11 @@ void Inspector::Draw()
 			gameObjectActual->transform->scale = scale;
 			ImGui::Separator();
 			////////////////////////////////////////////////////////////////////////
-
 			aiVector3D rotation = gameObjectActual->transform->rotationDegrees;
 			rotationArray[0] = rotation.x; 
 			rotationArray[1] = rotation.y;
 			rotationArray[2] = rotation.z;
-
 			ImGui::DragFloat3("Rotation", rotationArray);
-
 			gameObjectActual->transform->rotationDegrees.x = rotationArray[0];
 			gameObjectActual->transform->rotationDegrees.y = rotationArray[1];
 			gameObjectActual->transform->rotationDegrees.z = rotationArray[2];

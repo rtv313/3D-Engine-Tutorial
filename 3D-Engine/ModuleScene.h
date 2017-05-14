@@ -10,6 +10,7 @@
 #include "assimp/scene.h"
 #include "assimp/postprocess.h"
 #include "Shader.h"
+#include "Grid.h"
 #pragma comment(lib, "assimp/lib/assimp.lib")
 
 class ModuleScene : public Module
@@ -31,6 +32,7 @@ public:
 	void UpdateGameObjects();
 	update_status Update();
 	bool Init();
+	Grid *grid;
 };
 
 #endif // _MODULE_SCENE_H

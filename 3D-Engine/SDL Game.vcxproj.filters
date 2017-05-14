@@ -68,6 +68,9 @@
     <Filter Include="Brofiler">
       <UniqueIdentifier>{e2bf691b-1216-41c0-894b-ca27d2b4a2f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Gyzmos">
+      <UniqueIdentifier>{e2607317-723c-4838-b94b-124be4ee4143}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ModuleRender.h">
@@ -247,6 +250,9 @@
     <ClInclude Include="Inspector.h">
       <Filter>ModuleEditorModules</Filter>
     </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Gyzmos</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -335,6 +341,9 @@
     </ClCompile>
     <ClCompile Include="Inspector.cpp">
       <Filter>ModuleEditorModules</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>Gyzmos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

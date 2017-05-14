@@ -10,6 +10,7 @@ class GameObject
 {
 public:
 	GameObject(aiNode* node, const aiScene* scene, std::string directory);
+	GameObject();
 	~GameObject();
 	void Update();
 	void addChild(GameObject * child);

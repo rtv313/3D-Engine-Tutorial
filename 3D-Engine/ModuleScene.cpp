@@ -3,11 +3,14 @@
 
 ModuleScene::ModuleScene() 
 {
-
+	root = new GameObject();
+	root->name = "Scene Root";
 }
 
 ModuleScene::~ModuleScene() 
 {
+	delete root;
+	delete grid;
 	Clear();
 }
 
@@ -31,7 +34,7 @@ GameObject* ModuleScene::CreateGameObject(std::string path)
 	this->directory = path.substr(0, path.find_last_of('/'));
 
 	// Process ASSIMP's root node recursively
-	root = this->CreateNodes(scene->mRootNode, scene, nullptr);
+	root->childs.push_back (this->CreateNodes(scene->mRootNode, scene, nullptr));
 	return root;
 }
 
@@ -80,16 +83,7 @@ void ModuleScene::LinkGameObject(GameObject* go, GameObject* destination)
 
 void ModuleScene::UpdateGameObjects()
 {
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glEnable(GL_DEPTH_TEST); // z-finding
-
-	for (int i = 0; i < gameObjects.size(); i++)
-	{
-		gameObjects[i]->Update();
-	}
-
-	glDisable(GL_DEPTH_TEST);
+	
 }
 
 update_status ModuleScene::Update() 
@@ -104,6 +98,7 @@ update_status ModuleScene::Update()
 		gameObjects[i]->Update();
 	}
 
+	grid->Draw();
 	glDisable(GL_DEPTH_TEST);
 
 	return UPDATE_CONTINUE;
@@ -111,6 +106,8 @@ update_status ModuleScene::Update()
 
 bool ModuleScene::Init() 
 {
-	CreateGameObject("../Models/street/Street.obj");
+	//CreateGameObject("../Models/street/Street.obj");
+	CreateGameObject("../Models/Nanosuit/nanosuit.obj");
+	grid = new Grid();
 	return true;
 }

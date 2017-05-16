@@ -13,6 +13,7 @@
 #include "Grid.h"
 #pragma comment(lib, "assimp/lib/assimp.lib")
 
+class GhostCamera;
 class ModuleScene : public Module
 {
 public:
@@ -33,6 +34,7 @@ public:
 	update_status Update();
 	bool Init();
 	Grid *grid;
+	GhostCamera *test;
 };
 
 #endif // _MODULE_SCENE_H

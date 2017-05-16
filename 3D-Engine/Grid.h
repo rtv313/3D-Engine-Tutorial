@@ -9,9 +9,6 @@ class Grid
 public:
 	GLfloat posX, posY, posZ;
 	GLfloat red = 255, blue = 255, green = 255;
-	
-	const char* pVSFileName = "../lighting.vs";
-	const char* pFSFileName = "../lighting.fs";
 	Grid();
 	~Grid();
 	void Draw();
@@ -22,8 +19,10 @@ private:
 	std::vector<GLfloat> verticesHorizontal;
 	std::vector<GLfloat> verticesVertical;
 	std::vector<GLuint> indices;
-	uint indicesSize = 0;
+	GLuint indicesSize = 0;
 	Shader *shader;
+	const char* pVSFileName = "../lighting.vs";
+	const char* pFSFileName = "../lighting.fs";
 };
 	
 #endif // !GRID_H

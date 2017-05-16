@@ -1,6 +1,6 @@
 #include "ModuleScene.h"
 #include "Brofiler/Brofiler.h"
-
+#include "GhostCamera.h"
 ModuleScene::ModuleScene() 
 {
 	root = new GameObject();
@@ -11,6 +11,7 @@ ModuleScene::~ModuleScene()
 {
 	delete root;
 	delete grid;
+	delete test;
 	Clear();
 }
 
@@ -99,6 +100,7 @@ update_status ModuleScene::Update()
 	}
 
 	grid->Draw();
+	test->Draw();
 	glDisable(GL_DEPTH_TEST);
 
 	return UPDATE_CONTINUE;
@@ -109,5 +111,6 @@ bool ModuleScene::Init()
 	//CreateGameObject("../Models/street/Street.obj");
 	CreateGameObject("../Models/Nanosuit/nanosuit.obj");
 	grid = new Grid();
+	test = new GhostCamera();
 	return true;
 }
